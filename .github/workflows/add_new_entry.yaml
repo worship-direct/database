@@ -1,0 +1,31 @@
+name: Add new entries to database
+
+on:
+  push:
+    paths:
+      - 'new_entry/*.json'
+
+jobs:
+  process-new-entries:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install jsonschema
+
+      - name: Process new entries
+        run: python scripts/process_new_entries.py
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Add new religious building entries from new_entry/'
+          file_pattern: db.json
