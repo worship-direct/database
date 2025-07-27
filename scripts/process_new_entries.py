@@ -23,7 +23,11 @@ with open(SCHEMA_PATH, "r", encoding="utf-8") as f:
 # Load existing database
 if os.path.exists(DB_PATH):
     with open(DB_PATH, "r", encoding="utf-8") as f:
-        db = json.load(f)
+        content = f.read().strip()
+        if not content:
+            db = []
+        else:
+            db = json.loads(content)
 else:
     db = []
 
