@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Religious Building",
+  "type": "object",
+  "properties": {
+    "organization_id": { "type": "string", "pattern": "^[A-Za-z0-9]{1,20}$" },
+    "name": { "type": "string" },
+    "religion": { "type": "string" },
+    "street_address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" },
+    "postal_code": { "type": "string" },
+    "country": { "type": "string" },
+    "web_address": { "type": "string", "format": "uri" },
+    "phone": { "type": "string" },
+    "year_established": { "type": "integer" },
+    "notes": { "type": "string" }
+  },
+  "required": ["organization_id", "name", "religion", "street_address"]
+}
