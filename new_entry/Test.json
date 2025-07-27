@@ -1,0 +1,14 @@
+{
+  "organization_id": "00",
+  "name": "test church",
+  "religion": "Christianity",
+  "street_address": "123 Main St",
+  "city": "Springfield",
+  "state": "IL",
+  "postal_code": "62701",
+  "country": "USA",
+  "web_address": "https://stjohnschurch.org",
+  "phone": "+1-217-555-1234",
+  "year_established": 1890,
+  "notes": "Historic landmark"
+}
