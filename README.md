@@ -1,32 +1,30 @@
 # Religious Buildings Database
 
-This repository contains a structured database of religious buildings and organizations.  
-Each organization has a unique alphanumeric ID and includes the following information:
+This repository contains a structured database of religious buildings and organizations.
 
-- Organization ID
-- Name
-- Religion
-- Street Address
-- City, State, Postal Code, Country
-- Web Address
-- Phone
-- Year Established
-- Notes
+## Automated Entry Addition Workflow
+
+- Place new organization entries as `.json` files in `new_entry/`.
+- On push, the workflow merges new entries into `db.json`.
+- Each new entry receives a unique organization ID using base-36 (0-9, A-Z).
+- The workflow commits changes to `db.json`.
+
+See `.github/workflows/add_new_entries.yml` and `scripts/process_new_entries.py` for details.
 
 ## Schema
 
-See [`organization.schema.json`](organization.schema.json) for the schema definition.
+Each organization entry includes:
+- organization_id (base-36 alphanumeric)
+- name
+- religion
+- street_address
+- city
+- state
+- postal_code
+- country
+- web_address
+- phone
+- year_established
+- notes
 
-## Example Data
-
-See [`example_organizations.json`](example_organizations.json) for examples.
-
-## Adding Data
-
-To add a new organization:
-1. Generate a unique alphanumeric `organization_id`
-2. Fill in the details in a new or existing data file.
-
-## License
-
-Specify your license here.
+See `organization.schema.json` for formal schema.
