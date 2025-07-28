@@ -27,7 +27,11 @@ if os.path.exists(DB_PATH):
         if not content:
             db = []
         else:
-            db = json.loads(content)
+            try:
+                db = json.loads(content)
+            except json.JSONDecodeError:
+                print("Warning: db.json is invalid. Initializing as empty database.")
+                db = []
 else:
     db = []
 
