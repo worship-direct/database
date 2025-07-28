@@ -25,15 +25,15 @@ if os.path.exists(DB_PATH):
     with open(DB_PATH, "r", encoding="utf-8") as f:
         content = f.read().strip()
         if not content:
-            db = []
+            db = {}
         else:
             try:
                 db = json.loads(content)
             except json.JSONDecodeError:
                 print("Warning: db.json is invalid. Initializing as empty database.")
-                db = []
+                db = {}
 else:
-    db = []
+    db = {}
 
 existing_ids = {entry.get("organization_id", "") for entry in db if "organization_id" in entry}
 
